@@ -1,0 +1,28 @@
+syntax = "v1"
+
+info (
+	title: "leave"
+	desc: "Leave a channel"
+	author: "leave8080"
+	email: "wunaiwei8080@gmail.com"
+)
+
+type request {
+	// TODO: add members here and delete this comment
+	Id int `json:"userId" form:"userId"`
+}
+
+type response {
+	// TODO: add members here and delete this comment
+	Code    int         `json:"code"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
+}
+
+service user-api {
+	@handler GetUser // TODO: set handler name and delete this comment
+	get /users/id/:userId(request) returns(response)
+	
+	@handler CreateUser // TODO: set handler name and delete this comment
+	post /users/create(request)
+}
